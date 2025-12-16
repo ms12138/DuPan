@@ -42,7 +42,7 @@ def signin():
     signed_headers = HEADERS.copy()
     signed_headers['Cookie'] = BAIDU_COOKIE
     try:
-        resp = requests.get(url, headers=signed_headers, timeout=10)
+        resp = requests.get(url, headers=signed_headers, timeout=15)
         if resp.status_code == 200:
             sign_point = re.search(r'points":(\d+)', resp.text)
             signin_error_msg = re.search(r'"error_msg":"(.*?)"', resp.text)
